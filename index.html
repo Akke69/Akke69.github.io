@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Control</title>
+</head>
+<body>
+    <h1>Arduino Control</h1>
+    <button onclick="sendCommand('on')">Turn On</button>
+    <button onclick="sendCommand('off')">Turn Off</button>
+
+    <script>
+        // Function to send commands to Arduino via serial communication
+        function sendCommand(command) {
+            // Create a new XMLHttpRequest object
+            var xhr = new XMLHttpRequest();
+
+            // Configure the request
+            xhr.open("GET", "http://arduino_serial_port?command=" + command, true);
+
+            // Send the request
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
